@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="demo.css"><script src="demo.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#51345f">
+  <title>Cotiza tu terreno en Uchumayo · La Morada</title><meta name="description" content="Consulta área, disponibilidad y precios de los lotes de La Morada en soles o dólares. Solicita las condiciones al equipo comercial.">
+  <link rel="stylesheet" href="premium.css">
+<link rel="stylesheet" href="site-design.css"><link rel="stylesheet" href="interface-design.css"><link rel="stylesheet" href="loading-ui.css"><script src="loading-ui.js"></script></head>
+<body class="interface-page quote-page">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header"><a class="brand wordmark brand-official" href="index.html" aria-label="La Morada · Inicio"><img src="assets/brand/logo-color.png" width="739" height="643" alt="La Morada · Viviendas Club"></a><nav aria-label="Principal"><a href="index.html">El proyecto</a><a href="recorrido.html">Explorar lotes</a><a href="comunidad.html">Novedades</a><a href="contacto.html">Coordinar visita</a><a href="cotizacion.html" aria-current="page" class="nav-cta">Cotizar</a></nav></header>
+
+  <main id="contenido" class="form-layout">
+    <!-- Left Column: Context, Features & Financial Simulator -->
+    <section class="form-intro">
+      <a class="back" href="recorrido.html">← Volver al explorador 3D</a>
+      <span class="eyebrow black">Tu siguiente paso, con claridad</span>
+      <h1>Cotiza tu lote.<br>Decide con claridad.</h1>
+      <p>Consulta el precio y el área. Luego, recibe atención del equipo comercial.</p>
+
+      <figure class="quote-context"><img src="assets/render-oficial-perspectiva.webp" width="2400" height="1580" alt="Render oficial de La Morada junto al valle" loading="lazy"><figcaption>Uchumayo, Arequipa · Render oficial</figcaption></figure><p class="quote-context-note">Antes de decidir, consulta la documentación vigente y conoce el terreno. <a href="contacto.html">Coordinar una visita</a></p>
+      <!-- Live Financing Calculator Card -->
+      <div class="simulator-card" id="simulatorCard" hidden>
+        <div class="sim-header">
+          <span class="sim-badge">Explora una posibilidad de pago</span>
+          <h3>Simula tu plan de pago</h3>
+        </div>
+
+        <div class="sim-body">
+          <div class="sim-row">
+            <span class="sim-label">Cuota Inicial:</span>
+            <div class="pill-group" id="downPaymentGroup">
+              <button type="button" class="pill-btn" data-down="30">30%</button>
+              <button type="button" class="pill-btn" data-down="40">40%</button>
+              <button type="button" class="pill-btn active" data-down="50">50%</button>
+              <button type="button" class="pill-btn" data-down="70">70%</button>
+            </div>
+          </div>
+
+          <div class="sim-row">
+            <span class="sim-label">Plazo de Pago:</span>
+            <div class="pill-group" id="termGroup">
+              <button type="button" class="pill-btn" data-months="12">12 meses</button>
+              <button type="button" class="pill-btn" data-months="24">24 meses</button>
+              <button type="button" class="pill-btn active" data-months="36">36 meses</button>
+            </div>
+          </div>
+
+          <div class="sim-results">
+            <div class="sim-stat">
+              <small>Inicial estimada</small>
+              <strong id="simDownAmount">S/ 0</strong>
+            </div>
+            <div class="sim-stat highlight">
+              <small>Cuota mensual estimada</small>
+              <strong id="simMonthlyAmount">S/ 0 / mes</strong>
+            </div>
+          </div>
+          <small class="sim-footnote">Estimación aritmética del saldo dividido entre los meses elegidos. No incluye intereses ni otros cargos; el equipo debe confirmar el plan y sus condiciones.</small>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right Column: Interactive Form & WhatsApp Quick Action -->
+    <section class="form-card">
+      
+      <h2>Tu consulta</h2>
+
+      <form id="quoteForm" data-ready="false"><fieldset class="form-group"><legend><span class="form-step" aria-hidden="true">1</span> Elige tu lote</legend>
+        <div class="field-row">
+          <label>
+            Manzana
+            <select name="block" id="quoteBlock" required>
+              <option value="">Selecciona manzana</option>
+              <option value="A">Manzana A</option>
+              <option value="B" disabled>Manzana B · Fuera de venta</option>
+              <option value="C">Manzana C</option>
+              <option value="D">Manzana D</option>
+              <option value="E">Manzana E</option>
+              <option value="F">Manzana F</option>
+              <option value="G">Manzana G</option>
+              <option value="H">Manzana H</option>
+              <option value="I" disabled>Manzana I · Fuera de venta</option>
+              <option value="J">Manzana J</option>
+              <option value="K">Manzana K</option>
+            </select>
+          </label>
+          <label>
+            Lote
+            <select name="lot" id="quoteLot" required>
+              <option value="">Primero elige una manzana</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="quoteCurrencySlot"></div><!-- Live Price State Display -->
+        <div id="quoteState" class="quote-state" aria-live="polite">
+          Selecciona una manzana y un lote para ver el precio y el estado publicado.
+        </div>
+
+        <label class="request-purpose">¿Qué necesitas?<select name="requestType" id="requestType"><option value="quote">Cotizar un lote</option><option value="hold">Solicitar separación</option></select></label></fieldset><fieldset class="form-group"><legend><span class="form-step" aria-hidden="true">2</span> ¿Cómo te contactamos?</legend><label>
+          Nombre completo
+          <input name="name" id="userName" autocomplete="name" required maxlength="100" placeholder="Tu nombre y apellido">
+        </label>
+
+        <div class="field-row">
+          <label>
+            Correo electrónico
+            <input name="email" id="userEmail" maxlength="254" type="email" spellcheck="false" autocomplete="email" required placeholder="tu@correo.com">
+          </label>
+          <label>
+            Teléfono o WhatsApp <span class="optional">Opcional</span>
+            <input name="phone" id="userPhone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" placeholder="+51 987 654 321">
+          </label>
+        </div>
+
+        <label>
+          Tu consulta <span class="optional">Opcional</span>
+          <textarea name="message" id="userMessage" rows="3" maxlength="1000" placeholder="Quisiera conocer facilidades de pago, coordinar una visita este fin de semana…"></textarea>
+        </label>
+
+        </fieldset><div class="action-buttons-group"><button class="button brand-action" type="submit">Solicitar cotización</button></div><p class="form-expectation">El equipo confirmará disponibilidad y condiciones. La solicitud no reserva automáticamente el lote.</p>
+
+
+      </form>
+
+      <!-- Results View -->
+      <div id="quoteResult" hidden tabindex="-1">
+        <div class="result-header">
+          <span class="result-badge">SOLICITUD REGISTRADA</span>
+          <h3>Recibimos tu solicitud</h3>
+          <p>Un asesor revisará la información del lote y se pondrá en contacto contigo. Puedes conservar el resumen.</p>
+        </div>
+
+        <pre id="quoteSummary"></pre>
+
+        <div class="result-actions">
+          <a id="sendQuote" class="button brand-action" href="#">Compartir también por correo</a>
+          <button id="copySummaryBtn" type="button" class="button quiet-button-light">Copiar resumen</button>
+        </div>
+        <p class="fine">No necesitas enviar otro correo para registrar la solicitud. La separación requiere confirmación del equipo comercial.</p>
+        <button id="editQuote" type="button" class="text-link">← Modificar datos de la consulta</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><a class="footer-brand brand-official" href="index.html" aria-label="La Morada · Inicio"><img src="assets/brand/logo-color.png" width="739" height="643" alt="La Morada · Viviendas Club" loading="lazy"></a><p>Un proyecto de Biosfera Inmobiliaria S.A.C.<br>Arequipa, Perú.</p><a class="button" href="recorrido.html">Explorar lotes en 3D</a></div><div class="footer-bottom"><p>RUC 20610186450 · Calle Lima 100, oficina 608, Yanahuara, Arequipa.</p><nav aria-label="Información"><a href="plano.html">Plano de referencia</a><a href="privacidad.html">Privacidad</a><a href="condiciones.html">Condiciones</a></nav></div><small>Imágenes y modelo referenciales. Consulta los precios, la disponibilidad y la documentación vigente antes de contratar.</small></footer>
+
+  <script src="site.js"></script>
+<script type="module" src="interface.js"></script></body>
+</html>

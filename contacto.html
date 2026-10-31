@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="demo.css"><script src="demo.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#51345f">
+  <meta name="description" content="Contacto comercial · La Morada Condominio & Club. Teléfonos, WhatsApp y coordinación de visitas al terreno en Arequipa.">
+  <title>Contacto & Visitas al Terreno · La Morada</title>
+  <link rel="stylesheet" href="premium.css">
+<link rel="stylesheet" href="site-design.css"><link rel="stylesheet" href="interface-design.css"><link rel="stylesheet" href="loading-ui.css"><script src="loading-ui.js"></script></head>
+<body class="interface-page visit-page">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header"><a class="brand wordmark brand-official" href="index.html" aria-label="La Morada · Inicio"><img src="assets/brand/logo-color.png" width="739" height="643" alt="La Morada · Viviendas Club"></a><nav aria-label="Principal"><a href="index.html">El proyecto</a><a href="recorrido.html">Explorar lotes</a><a href="comunidad.html">Novedades</a><a href="contacto.html" aria-current="page">Coordinar visita</a><a href="cotizacion.html" class="nav-cta">Cotizar</a></nav></header>
+
+  <main id="contenido">
+    <section class="contact-layout">
+      <!-- Left: Context and Visit Request Form -->
+      <div>
+        <span class="eyebrow">Visitas al proyecto · Uchumayo</span>
+        <h1>Tu próxima morada<br>se conoce caminando.</h1>
+        <p>Conoce el terreno, recorre el entorno y resuelve tus dudas. Cuéntanos cuándo te gustaría venir y coordinamos contigo.</p>
+
+        <!-- Quick Visit Appointment Card -->
+        <div class="visit-card">
+          <div class="visit-header">
+            
+            <h2>Coordina tu visita.</h2>
+          </div>
+          <p class="visit-desc">Completa tus datos y una preferencia de fecha, si ya la tienes.</p>
+
+          <form id="visitForm"><fieldset class="form-group"><legend>Tus datos de contacto</legend><div class="field-row"><label>Nombre completo<input id="visitName" name="name" maxlength="120" autocomplete="name" required placeholder="Tu nombre y apellido"></label><label>Teléfono o WhatsApp<input id="visitPhone" name="phone" type="tel" inputmode="tel" maxlength="40" autocomplete="tel" required placeholder="+51 987 654 321"></label></div><label>Correo electrónico<input id="visitEmail" name="email" type="email" autocomplete="email" maxlength="254" spellcheck="false" required placeholder="tu@correo.com"></label></fieldset><fieldset class="form-group"><legend>¿Cuándo te gustaría venir?</legend><p class="field-help">Puedes elegir una preferencia o dejar que nuestro equipo la coordine contigo.</p><div class="field-row"><label>Fecha preferida <span class="optional">Opcional</span><input id="visitDate" name="date" type="date"></label><label>Horario preferido<select id="visitTime" name="time"><option value="">Por coordinar</option><option value="Mañana (9:00 am - 12:00 pm)">Mañana · 9:00 a 12:00</option><option value="Tarde (2:00 pm - 5:00 pm)">Tarde · 14:00 a 17:00</option><option value="Fin de semana (Sábado / Domingo)">Fin de semana</option></select></label></div></fieldset><label class="consent-label"><input id="visitConsent" type="checkbox" required> Autorizo el uso de mis datos para coordinar esta visita. <a href="privacidad.html" target="_blank" rel="noopener">Información de privacidad (otra pestaña)</a>.</label><button type="submit" class="button brand-action">Solicitar visita</button><p class="form-expectation">Te contactaremos para confirmar el día, la hora y el punto de encuentro. La visita queda pendiente de confirmación.</p><p id="visitStatus" role="status"></p></form>
+        </div>
+      </div>
+
+      <!-- Right: Direct Contact Channels Card -->
+      <div class="contact-panel"><figure class="visit-preview"><img src="assets/video/terreno-poster.jpg" width="1280" height="720" alt="Vista real del terreno de La Morada desde el aire"><figcaption>Una mirada real al terreno</figcaption></figure>
+        
+        <h2>¿Prefieres conversar?</h2>
+
+        <!-- Advisor 1 -->
+        <div class="advisor-item">
+          <small>Atención por WhatsApp</small>
+          <a class="contact-link" href="https://api.whatsapp.com/send?phone=51966030329&text=Hola%2C%20quisiera%20consultar%20sobre%20el%20proyecto%20La%20Morada" target="_blank" rel="noopener noreferrer">
+            <strong>966 030 329</strong>
+            <span class="chat-pill">WhatsApp </span>
+          </a>
+          <a class="phone-call-link" href="tel:+51966030329"> Llamar por teléfono</a>
+        </div>
+
+        <!-- Email -->
+        <div class="advisor-item">
+          <small>Correo del equipo</small>
+          <a class="contact-link" href="mailto:biosfera.marketing.di@gmail.com?subject=Consulta%20sobre%20Proyecto%20La%20Morada">
+            <strong class="email">biosfera.marketing.di@gmail.com</strong>
+            <span class="chat-pill">Escribir</span>
+          </a>
+        </div>
+
+        <!-- Corporate info -->
+        <div class="contact-location">
+          <strong>Biosfera Inmobiliaria S.A.C. · RUC 20610186450</strong>
+          <a class="text-link" href="https://maps.app.goo.gl/XadCXwAyyn6ptuuSA" target="_blank" rel="noopener noreferrer">Ver ubicación del proyecto en Google Maps ↗</a>
+          
+        </div>
+      </div>
+    </section>
+
+<section class="contact-bottom"><div><h2>Encuéntranos en Arequipa.</h2><p>Calle Lima 100, oficina 608, Yanahuara, Arequipa.</p><p>Biosfera Inmobiliaria S.A.C. · RUC 20610186450</p></div><a class="text-link" href="recorrido.html">Elegir un lote antes de la visita <span aria-hidden="true">↗</span></a></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><a class="footer-brand brand-official" href="index.html" aria-label="La Morada · Inicio"><img src="assets/brand/logo-color.png" width="739" height="643" alt="La Morada · Viviendas Club" loading="lazy"></a><p>Un proyecto de Biosfera Inmobiliaria S.A.C.<br>Arequipa, Perú.</p><a class="button" href="recorrido.html">Explorar lotes en 3D</a></div><div class="footer-bottom"><p>RUC 20610186450 · Calle Lima 100, oficina 608, Yanahuara, Arequipa.</p><nav aria-label="Información"><a href="plano.html">Plano de referencia</a><a href="privacidad.html">Privacidad</a><a href="condiciones.html">Condiciones</a></nav></div><small>Imágenes y modelo referenciales. Consulta los precios, la disponibilidad y la documentación vigente antes de contratar.</small></footer>
+
+  <script src="site.js"></script>
+  <script src="contact.js"></script>
+<script type="module" src="interface.js"></script></body>
+</html>
